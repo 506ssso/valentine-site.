@@ -1,0 +1,78 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+
+  let scale = 1;
+
+  noBtn.onclick = function () {
+    scale += 0.2;
+    yesBtn.style.transform = "scale(" + scale + ")";
+  };
+
+  yesBtn.onclick = function () {
+    document.body.classList.add("yes-mode");
+
+    // Replace the container content safely
+    const container = document.querySelector(".container");
+    container.innerHTML = '<h1>Yipppeeeee I love you so much Ghalia</h1>';
+  };
+});
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+body.yes-mode {
+    background-image: 
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+h1 {
+    margin: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background-color: #ccc;
+    color: #333;
+}
